@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
-import { reducers, metaReducers } from './reducers';
 
 @NgModule({
   declarations: [
@@ -13,8 +12,7 @@ import { reducers, metaReducers } from './reducers';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot(reducers, {
-      metaReducers,
+    StoreModule.forRoot({}, {
       runtimeChecks: {
         strictStateImmutability: true,
         strictActionImmutability: true
