@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
 
+import { counterReducer } from './reducers';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -12,12 +14,7 @@ import { StoreModule } from '@ngrx/store';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({}, {
-      runtimeChecks: {
-        strictStateImmutability: true,
-        strictActionImmutability: true
-      }
-    })
+    StoreModule.forRoot({count: counterReducer})
   ],
   providers: [],
   bootstrap: [AppComponent]

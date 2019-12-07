@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {Observable} from 'rxjs';
+import {select, Store} from '@ngrx/store';
+import {Decrement, Increment, Reset} from './actions';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +9,22 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'ng-vim';
+  public count$: Observable<number>;
+
+  constructor(private store: Store<{ count: number }>) {
+    this.count$ = this.store.pipe(select('count'));
+  }
+
+  increment() {
+    this.store.dispatch(new Increment());
+  }
+
+  decrement() {
+    this.store.dispatch(new Decrement());
+  }
+
+  reset() {
+    this.store.dispatch(new Reset());
+  }
+
 }

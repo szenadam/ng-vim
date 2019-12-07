@@ -1,4 +1,10 @@
 <h1>Ng-Vim</h1>
 
+
+<button (click)="increment()">Increment</button>
+<div>Current Count: {{ count$ | async }}</div>
+<button (click)="decrement()">Decrement</button>
+<button (click)="reset()">Reset Counter</button>
+
 <label for="editor">Editor</label>
 <textarea name="editor" id="editor" [rows]="50" ></textarea>
