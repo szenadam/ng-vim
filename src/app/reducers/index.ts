@@ -1,19 +1,11 @@
-import { Action } from '@ngrx/store';
-import { ActionTypes } from '../actions';
+import { ActionTypes, SetMode } from '../actions';
 
-export const initialState = 0;
+export const initialState = 'normal';
 
-export function counterReducer(state = initialState, action: Action) {
+export function modeReducer(state = initialState, action: SetMode) {
   switch (action.type) {
-    case ActionTypes.Increment:
-      return state + 1;
-
-    case ActionTypes.Decrement:
-      return state - 1;
-
-    case ActionTypes.Reset:
-      return 0;
-
+    case ActionTypes.SetMode:
+      return state = action.payload;
     default:
       return state;
   }

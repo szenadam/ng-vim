@@ -1,10 +1,9 @@
 <h1>Ng-Vim</h1>
 
-
-<button (click)="increment()">Increment</button>
-<div>Current Count: {{ count$ | async }}</div>
-<button (click)="decrement()">Decrement</button>
-<button (click)="reset()">Reset Counter</button>
+<button (click)="setMode('normal')">Set normal mode</button>
+<button (click)="setMode('insert')">Set insert mode</button>
+<button (click)="setMode('visual')">Set visual mode</button>
+<div>Current mode: {{ mode$ | async }}</div>
 
 <label for="editor">Editor</label>
-<textarea name="editor" id="editor" [rows]="50" ></textarea>
+<textarea name="editor" id="editor" [rows]="50"></textarea>
