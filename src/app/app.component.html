@@ -1,6 +1,1 @@
-<h1>Ng-Vim</h1>
-
-<div>Current mode: {{ mode$ | async }}</div>
-
-<label for="editor">Editor</label>
-<textarea name="editor" id="editor" [rows]="50" #editorArea></textarea>
+<label for="editor"></label><textarea name="editor" id="editor" [rows]="55" #editorArea [disabled]="(mode$ | async) === 'normal'"></textarea>
