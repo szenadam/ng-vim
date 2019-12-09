@@ -10,18 +10,20 @@ import { SetMode } from './actions';
 })
 export class AppComponent implements AfterViewInit {
   public mode$: Observable<string>;
-  private keypress: Subscription;
+
   @ViewChild('editorArea', {static: false}) editorArea: ElementRef;
+
+  private keypress: Subscription;
 
   constructor(private store: Store<{ count: number }>) {
     this.mode$ = this.store.pipe(select('mode'));
   }
 
   ngAfterViewInit(): void {
-    this.keypress = fromEvent(this.editorArea.nativeElement, 'keydown').subscribe((event: KeyboardEvent) => {
+    this.keypress = fromEvent(document, 'keydown').subscribe((event: KeyboardEvent) => {
       if (event.key === 'i') {
         this.store.dispatch(new SetMode('insert'));
-      } else if (event.key === 'n') {
+      } else if (event.key === 'n' || event.key === 'Escape') {
         this.store.dispatch(new SetMode('normal'));
       } else if (event.key === 'v') {
         this.store.dispatch(new SetMode('visual'));
