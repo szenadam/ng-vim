@@ -1,6 +1,6 @@
 # Ng-Vim
 
-![Build](https://github.com/szenadam/ng-vim/.github/workflows/angular.yml/badge.svg)
+![Build](https://github.com/szenadam/ng-vim/workflows/Angular/badge.svg)
 
 Vim implemented in angular
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.15.
