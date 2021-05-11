@@ -9,14 +9,14 @@ import { SetMode } from './actions';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements AfterViewInit {
-  public mode$: Observable<string>;
+  public mode$: Observable<number>;
 
   @ViewChild('editorArea', {static: false}) editorArea: ElementRef;
 
   private keypress: Subscription;
 
   constructor(private store: Store<{ count: number }>) {
-    this.mode$ = this.store.pipe(select('mode'));
+    this.mode$ = this.store.pipe(select('count'));
   }
 
   ngAfterViewInit(): void {
